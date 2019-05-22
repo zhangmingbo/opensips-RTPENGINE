@@ -5,7 +5,7 @@
    \# ----- domain params -----
    modparam\("domain", "db\_url",
    "mysql://opensips:opensipsrw@localhost/opensips"\)
-2. opensips 运行一晚之后，连接数据库的连接数达到600，在连接数据库的module下设置了最大连接数不能解决该问题\(db\__max\__connection\)
+2. opensips 运行一晚之后，连接数据库的连接数达到600，在连接数据库的module下设置了最大连接数不能解决该问题\(db\_max\_async\_connection=100\)
 
 
 
