@@ -78,3 +78,5 @@ exit;
 
 alias\_db module实时查询数据库，因此如果号码量特别大的话，考虑到效率问题，应该是用缓存接口（cached interface）
 
+drouting模块也可以做DID到内部号码的映射，支持缓存方式。
+
