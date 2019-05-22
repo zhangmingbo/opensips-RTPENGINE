@@ -38,5 +38,39 @@ Call processing路由处理
 
 ## 路由规则详解
 
+![](/assets/import3.png)
 
+首先，查找路由组（set/group），该组可能提供脚本级别的路由（do_routing\(\)）,如果没有，则通过查找dr\_groups表，找到基于From消息头的组_
+
+组确定之后，开始匹配被叫号码前缀，选择最长的前缀匹配成功的规则；如果没有匹配到，则选择默认路由；
+
+下一步匹配时间，如时间表达式为空，则默认没有规则；
+
+当时间规则匹配后，接下来根据优先级排序，数值大的规则，优先级更高；
+
+被选择的路由规则包含一组网关或者运营商（gateways or carriers），该模块会将电弧发送至其中一个网关；网关列表的排序方式有2种：
+
+给与的顺序；基于权重重新排序；
+
+CarrierA – GW1=25, GW2=75 \(using weights\)
+
+CarrierB – GW3,GW4 \(no weights\)
+
+Rule for prefix 4021 \(no W flag\) : \#CarrierA,\#CarrierB, GW5
+
+Results:
+
+GW1, GW2, GW3, GW4, GW5
+
+GW2, GW1, GW3, GW4, GW5
+
+CarrierA may have a different order due to the weightbased
+
+reordering，运营商A可能会有不同的顺序，因为有权重因子（权重大的并不代表只选择大的）
+
+If a
+
+gateway fails \(no answer or server error reply\), you can do serial forking via the failure
+
+route and try the next available gateway from the selected rule.
 
