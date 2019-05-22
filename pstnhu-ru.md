@@ -42,3 +42,39 @@ strip\(1\);
 
 ## 方法二  dialplan 模块处理
 
+loadmodule "dialplan.so"
+
+modparam\("dialplan","db\_url", "mysql://user:pwd@localhost/opensips"\)
+
+{ ..
+
+if \( check\_source\_address\("1"\) \) {
+
+\# trusted GW, normalize to E.164
+
+if \( !dp\_translate\("10","$rU/$rU"\) \) {
+
+send
+
+![](/assets/import.png)
+
+号码确定后，接下来查询本地服务号码的归属。
+
+考虑到PSTN号码其实是实际服务或者用户的化名，我们可以用Aliasing System 
+
+
+
+loadmodule "alias\_db.so"
+
+modparam\("alias\_db","db\_url", "mysql://user:pwd@localhost/opensips"\)\# use the "dids" aliases table and do not
+
+\# use the domain part when looking up for alias
+
+if \( alias\_db\_lookup\("dids","d"\) \) {
+
+send\_reply\("404","DID not found"\);
+
+exit;
+
+}
+
