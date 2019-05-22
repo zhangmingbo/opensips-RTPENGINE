@@ -34,9 +34,11 @@ if \( $rU=~"^00" \) { \# international 00 format
 
 strip\(2\);
 
-} else if \( $rU=~"^\+" \) { \# international + format
+} else if \( $rU=~"^+" \) { \# international + format
 
 strip\(1\);
 
 }
+
+## 方法二  dialplan 模块处理
 
