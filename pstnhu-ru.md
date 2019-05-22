@@ -26,7 +26,17 @@ permissions模块提供灵活的函数，check\_address  \(group,IP, port ,proto
 
 ## 方法一 脚本文件编辑路由
 
+if \( check\_source\_address\("1"\) \) {
 
+\# trusted GW, normalize to E.164
 
+if \( $rU=~"^00" \) { \# international 00 format
 
+strip\(2\);
+
+} else if \( $rU=~"^\+" \) { \# international + format
+
+strip\(1\);
+
+}
 
