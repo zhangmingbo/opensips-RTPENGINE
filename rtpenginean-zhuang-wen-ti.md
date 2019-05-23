@@ -2,14 +2,21 @@
 
 解决方法如下：
 
-编辑      vi /etc/ld.so.conf 
+编辑      vi /etc/ld.so.conf
 
-如果是非root权限帐号登录，使用 sudo vi /etc/ld.so.conf 
+如果是非root权限帐号登录，使用 sudo vi /etc/ld.so.conf
 
 添加上python2.7的lib库地址，如我的/usr/local/Python2.7/lib，保存文件
 
-执行 /sbin/ldconfig -v命令，如果是非root权限帐号登录，使用 sudo  /sbin/ldconfig -v。这样 ldd 才能找到这个库，执行python2.7就不会报错了
+执行 /sbin/ldconfig -v命令，如果是非root权限帐号登录，使用 sudo  /sbin/ldconfig -v。这样 ldd 才能找到这个库，执行python2.7就不会报错了
 
-  
+
+
+运营yum时报错：There was a problem importing one of the Python modules required to run yum. The error leading to this problem was:
+
+No module named yum
+
+解决：[https://www.cnblogs.com/shmily3929/p/9964862.html](https://www.cnblogs.com/shmily3929/p/9964862.html)
+
 
 
