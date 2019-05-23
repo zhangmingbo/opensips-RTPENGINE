@@ -36,24 +36,23 @@ modparam\("mi\_json", "mi\_json\_root", "json"\)
 
 $boxes\[$box\_id\]\['mi'\]\['conn'\]="json:47.97.213.3:8888/json";
 
-1.  ERROR:drouting:get\_group\_id: no group for user "18516237700"@"192.168.1.59"   ， ERROR:drouting:do\_routing: failed to get group id
+1. ERROR:drouting:get\_group\_id: no group for user "18516237700"@"192.168.1.59"
+   ， ERROR:drouting:do\_routing: failed to get group id
    drouting脚本在cfg文件里未正确配置
 
-正确配置如下：
+正确配置如下：
 
-        \# use DR to route
+```
+    # use DR to route
 
-        if \( !do\_routing\(\) \) {
+    if ( !do_routing() ) {
 
-                send\_reply\("503","No route found"\);
+            send_reply("503","No route found");
 
-                exit;
+            exit;
 
-                }
-
-
-
-
+            }
+```
 
 
 
