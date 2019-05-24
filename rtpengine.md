@@ -30,5 +30,19 @@ rtpengine启动时提示 CRIT: Fatal error: Missing option --interface
 
 RTPENGINE的配置文件在安装包目录下的etc目录里，样例文件名为 rtpengine.sample.conf
 
-启动时rtpengine  --config-file=FILE 
+启动时rtpengine  --config-file=FILE
+
+ rtpengine --config-file=rtpengine.conf 提示错误：
+
+ FAILED TO CREATE KERNEL TABLE 0 \(No such file or directory\), KERNEL FORWARDING DISABLED
+
+方法：重新编译iptables-extension 参考（[https://github.com/sipwise/rtpengine\#manual-compilation](https://github.com/sipwise/rtpengine#manual-compilation)）
+
+make: Nothing to be done for \`all'------make之前 make clean解决
+
+make成功之后生成libxt\_RTPENGINE.so文件，并产生文件 /lib64/xtables /usr/include/xtables.h
+
+接着在kernal-module下make ，并执行 xt\_RTPENGINE.ko，出现错误：error inserting 'xt\_RTPENGINE.ko': -1 Unknown symbol in module，重启服务器解决；重启服务器后，uname -r的结果发生变化，可能是这个原因导致的
+
+insmod libxt\_RTPENGINE
 
