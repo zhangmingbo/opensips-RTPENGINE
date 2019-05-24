@@ -1,3 +1,5 @@
+https://github.com/redis/hiredis 安装rtpengine指南
+
 gperf   gperftools
 
 git clean -f -x -d
@@ -17,6 +19,4 @@ No package hiredis available 在网站[http://springdale.math.ias.edu/data/puias
 No package 'libevent\_pthreads' found
 
 yum remove libevent-devel ,yum install libevent2-devel解决
-
-
 
