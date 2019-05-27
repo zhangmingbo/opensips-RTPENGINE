@@ -54,5 +54,31 @@ $boxes\[$box\_id\]\['mi'\]\['conn'\]="json:47.97.213.3:8888/json";
             }
 ```
 
+log文件配置
+
+#### 2.39 log\_stderror
+
+With this parameter you can make**OpenSIPS**to write log messages to standard error. Possible values are:
+
+- "yes" - write the messages to standard error
+
+- "no" - write the messages to syslog
+
+Default value is "no".
+
+Example of usage:
+
+```
+    log_level=4
+    log_stderror=yes（配置为yes后，不会输出日志到文件）
+    log_facility=LOG_LOCAL0
+    
+    
+```
+
+另外配置/etc//rsyslog.conf 并重启rsyslog服务
+
+local0.\*                                               /var/log/opensips.log
+
 
 
