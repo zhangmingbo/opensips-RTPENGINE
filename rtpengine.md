@@ -46,15 +46,39 @@ make成功之后生成libxt\_RTPENGINE.so文件，并产生文件 /lib64/xtables
 
 insmod libxt\_RTPENGINE
 
-无法使用rtpengine 
+无法使用rtpengine
 
- opensipsctl fifo rtpengine\_show
+opensipsctl fifo rtpengine\_show
 
 Set:: 0
 
-        node:: udp:127.0.0.1:2223 index=0 disabled=1 weight=1 recheck\_ticks=60
+```
+    node:: udp:127.0.0.1:2223 index=0 disabled=1 weight=1 recheck\_ticks=60
+```
 
 ERROR:rtpengine:rtpe\_function\_call: no available proxies
+
+ERROR:rtpengine:send\_rtpe\_command: can't send command to a RTP proxy \(111:Connection refused\)
+
+ERROR:rtpengine:send\_rtpe\_command: timeout waiting reply from a RTP proxy
+
+ERROR:rtpengine:send\_rtpe\_command: proxy &lt;udp:192.168.1.59:2223&gt; does not respond, disable it
+
+ERROR:rtpengine:rtpe\_test: proxy did not respond to ping
+
+DBG:rtpengine:connect\_rtpengines: successfully updated rtpengine sets
+
+ERROR:rtpengine:send\_rtpe\_command: can't send command to a RTP proxy \(111:Connection refused\)
+
+
+
+RTPEngine 未正常启动,netstat -unlp未显示 rtpengine控制端口UDP 2223；另外opensips第一次检测失败后，没有再进行持续检测，即使rtpengine后面重启后，也可能出现未检测到RTPENGINE运行的情况
+
+正常情况： opensipsctl fifo rtpengine\_show
+
+Set:: 0
+
+        node:: udp:192.168.1.59:2223 index=0 disabled=0 weight=1 recheck\_ticks=0
 
 
 
