@@ -70,15 +70,17 @@ DBG:rtpengine:connect\_rtpengines: successfully updated rtpengine sets
 
 ERROR:rtpengine:send\_rtpe\_command: can't send command to a RTP proxy \(111:Connection refused\)
 
-
-
 RTPEngine 未正常启动,netstat -unlp未显示 rtpengine控制端口UDP 2223；另外opensips第一次检测失败后，没有再进行持续检测，即使rtpengine后面重启后，也可能出现未检测到RTPENGINE运行的情况
 
 正常情况： opensipsctl fifo rtpengine\_show
 
 Set:: 0
 
-        node:: udp:192.168.1.59:2223 index=0 disabled=0 weight=1 recheck\_ticks=0
+```
+    node:: udp:192.168.1.59:2223 index=0 disabled=0 weight=1 recheck\_ticks=0
+```
 
+uac:mod\_init: 'append\_fromtag' RR param is not enabled! - required by AUTO restore mode
 
+modparam\("rr", "append\_fromtag", 1\)参数设置为1
 
