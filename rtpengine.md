@@ -84,3 +84,11 @@ uac:mod\_init: 'append\_fromtag' RR param is not enabled! - required by AUTO res
 
 modparam\("rr", "append\_fromtag", 1\)参数设置为1
 
+SDK中包含ice等参数，Feeswitch回复404 not acceptable here ,reason: destination\_incompatible
+
+在opensipss的module参数里,设置 ICE=remove
+
+                  $var\(rtpengine\_flags\) =  "in-iface=internal out-iface=external ICE=remove";
+
+              
+
