@@ -88,7 +88,13 @@ SDK中包含ice等参数，Feeswitch回复404 not acceptable here ,reason: desti
 
 在opensipss的module参数里,设置 ICE=remove
 
-                  $var\(rtpengine\_flags\) =  "in-iface=internal out-iface=external ICE=remove";
+```
+              $var\(rtpengine\_flags\) =  "in-iface=internal out-iface=external ICE=remove";
+```
 
-              
+Opensips+RTPENGINE穿越本地防火墙
+
+[https://blog.opensips.org/2017/10/25/running-opensips-in-the-cloud/](https://blog.opensips.org/2017/10/25/running-opensips-in-the-cloud/)
+
+[https://blog.csdn.net/u011857683/article/details/78638438](https://blog.csdn.net/u011857683/article/details/78638438)
 
